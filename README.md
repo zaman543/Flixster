@@ -26,7 +26,7 @@ A movie scrolling app that allows users to browse movies from the [The Movie Dat
 
 ### Notes
 - Ran into an exception running it the first time, since I ran the app before any network permissions were needed; solved by uninstalling (https://stackoverflow.com/questions/56266801/java-net-socketexception-socket-failed-eperm-operation-not-permitted?answertab=votes).
-- Glide error: "Failed to find GeneratedAppGlideModule..." [Solution](https://stackoverflow.com/questions/49901629/glide-showing-error-failed-to-find-generatedappglidemodule) [Another Link](https://bumptech.github.io/glide/doc/generatedapi.html)
+- Glide error: "Failed to find GeneratedAppGlideModule..." [Solution](https://stackoverflow.com/questions/49901629/glide-showing-error-failed-to-find-generatedappglidemodule) & [Another Link](https://bumptech.github.io/glide/doc/generatedapi.html)
 - Last error: Getting Image sizes of the poster using the configurations API
 Originally placed an asynchronous http client request to get the base URL (getting the secure http link, and the image size) for all posters inside of Movies.getPosterPath(). It was the wrong place to put it, since the function was required to return something, and there was no guarantee of a successful request immediately after sending one out.
 Solved by placing it as the first client request in MainActivity.java. Then, nested the second client request (to retrive "Now Playing" movies) inside of the try statement of the first client request.
