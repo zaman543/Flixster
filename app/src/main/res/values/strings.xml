@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Flixster</string>
+    <string name="poster_description">An image of the poster.</string>
+</resources>
