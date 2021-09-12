@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         rvMovies.setAdapter(movieAdapter);
         rvMovies.setLayoutManager(new LinearLayoutManager(this));
 
-
         AsyncHttpClient client = new AsyncHttpClient();
 
         client.get(CONFIGURATIONS, new JsonHttpResponseHandler() {

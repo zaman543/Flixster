@@ -28,7 +28,6 @@ public class Movie {
         return movieList;
     }
 
-
     public String getPosterPath() {
         return posterPath;
     }

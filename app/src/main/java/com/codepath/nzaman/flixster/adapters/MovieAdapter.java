@@ -62,5 +62,4 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             Glide.with(context).load(movie.getPosterPath()).into(ivPoster);
         }
     }
-
 }
