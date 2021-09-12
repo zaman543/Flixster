@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     public static final String CONFIGURATIONS = "https://api.themoviedb.org/3/configuration?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
     public static final String MOVIETAG = "Fetching Config, main activity";
 
-
     List<String> sizes = new ArrayList<>();
     String secureBaseURL;
     List<Movie> movies;
