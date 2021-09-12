@@ -22,17 +22,14 @@ A movie scrolling app that allows users to browse movies from the [The Movie Dat
 - [ ] (2pts) For popular movies (i.e. a movie voted for more than 5 stars), the full backdrop image is displayed. Otherwise, a poster image, the movie title, and overview is listed. Use Heterogenous RecyclerViews and use different ViewHolder layout files for popular movies and less popular ones.
 
 ### App Walkthough GIF
-`TODO://` Add the URL to your animated app walkthough `gif` in the image tag below, `YOUR_GIF_URL_HERE`. Make sure the gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after after adding gif)
-
 <img src="walkthru.gif" width=250><br>
 
 ### Notes
 - Ran into an exception running it the first time, since I ran the app before any network permissions were needed; solved by uninstalling (https://stackoverflow.com/questions/56266801/java-net-socketexception-socket-failed-eperm-operation-not-permitted?answertab=votes).
 - Glide error: "Failed to find GeneratedAppGlideModule..." [Solution](https://stackoverflow.com/questions/49901629/glide-showing-error-failed-to-find-generatedappglidemodule) [Another Link](https://bumptech.github.io/glide/doc/generatedapi.html)
 - Last error: Getting Image sizes of the poster using the configurations API
-I originally placed a asynchronous http client request to get the base URL (getting the secure http link, and the image size) for all posters inside of Movies.getPosterPath(). It was the wrong place to put it, since the function was required to return something, and I had no guarantee of a successful request immediately after sending one out. I had to have the base URL before using the function.
-I resolved it by placing it as the first client request in MainActivity.java. Then I nested the second client request inside of the try statement of the first client request, which allowed me to get "Now Playing" movies, and send in its URL as it was created. (Kind of messy, but it got the job done)
-
+Originally placed an asynchronous http client request to get the base URL (getting the secure http link, and the image size) for all posters inside of Movies.getPosterPath(). It was the wrong place to put it, since the function was required to return something, and there was no guarantee of a successful request immediately after sending one out.
+Solved by placing it as the first client request in MainActivity.java. Then, nested the second client request (to retrive "Now Playing" movies) inside of the try statement of the first client request.
 
 ### Open-source libraries used
 
