@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     JSONObject images = jsonObjMovieConfig.getJSONObject("images");
                     JSONArray posterSizes = images.getJSONArray("poster_sizes");
-                    //global vars = BAD; pass as parameters??
                     secureBaseURL = images.getString("secure_base_url");
                     Log.i(MOVIETAG, "posterSizes: " + posterSizes.toString());
                     sizes = jsonArrayToStrArr(posterSizes);
