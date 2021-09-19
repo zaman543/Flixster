@@ -22,10 +22,9 @@ import java.util.List;
 import okhttp3.Headers;
 
 public class MainActivity extends AppCompatActivity {
-    //embedding an api key
-    public static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    public static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=";
     public static final String TAG = "Main Activity";
-    public static final String CONFIGURATIONS = "https://api.themoviedb.org/3/configuration?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    public static final String CONFIGURATIONS = "https://api.themoviedb.org/3/configuration?api_key=";
     public static final String MOVIETAG = "Fetching Config, main activity";
 
     List<String> sizes = new ArrayList<>();
@@ -46,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
         AsyncHttpClient client = new AsyncHttpClient();
 
-        client.get(CONFIGURATIONS, new JsonHttpResponseHandler() {
+        String config = CONFIGURATIONS + getString(R.string.moviedb);
+        client.get(config, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Headers headers, JSON response) {
                 Log.d(MOVIETAG, "onSuccess");
@@ -59,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
                     sizes = jsonArrayToStrArr(posterSizes);
                     finalurl = secureBaseURL + sizes.get(sizes.size()/2);
 
-                    client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
+                    String now_playing_final_url = NOW_PLAYING_URL + getString(R.string.moviedb);
+                    client.get(now_playing_final_url, new JsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Headers headers, JSON response) {
                             Log.d(TAG, "onSuccess");
